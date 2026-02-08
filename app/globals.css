@@ -1,24 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #fafafa;
-  --border: #1f2937;
-  --border-hover: #7c3aed;
-  --muted: #111827;
-  --accent: #a855f7;
-  --card: #030712;
+  --background: #ffffff;
+  --foreground: #111827;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-border: var(--border);
-  --color-border-hover: var(--border-hover);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-card: var(--card);
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 * {
@@ -27,45 +17,27 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7c3aed, #ec4899);
-  border-radius: 5px;
+  background: #e5e7eb;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #8b5cf6, #f472b6);
-}
-
-/* Selection */
-::selection {
-  background: rgba(168, 85, 247, 0.3);
-  color: #fafafa;
-}
-
-/* Focus visible */
-:focus-visible {
-  outline: 2px solid #7c3aed;
-  outline-offset: 2px;
+  background: #d1d5db;
 }
