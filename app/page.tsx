@@ -1,89 +1,158 @@
-import { FileText, ExternalLink, X } from 'lucide-react';
+import { FileText, ExternalLink, X, Mail, MapPin, Code, Terminal, Database } from 'lucide-react';
+
+const experiences = [
+  {
+    role: 'Founder & Engineer',
+    company: 'startup25.com',
+    period: '2024 - Present',
+    description: 'Building AI-powered tools for small businesses. Stack: Next.js, Python, PostgreSQL, Stripe APIs.',
+  },
+];
 
 const projects = [
   {
     name: 'startup25.com',
-    description: 'AI-powered toolkit that transforms menus and receipts into e-commerce sites.',
+    description: 'Transform menus, receipts, and maps into complete e-commerce experiences using AI.',
+    tech: ['Next.js', 'AI/ML', 'Stripe', 'PostgreSQL'],
     link: 'https://startup25.com',
   },
 ];
 
-const skills = [
-  'React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'Docker', 'AWS'
-];
+const skills = {
+  languages: ['TypeScript', 'Python', 'JavaScript', 'SQL', 'Swift'],
+  frameworks: ['Next.js', 'React', 'Node.js', 'FastAPI', 'Django'],
+  tools: ['Git', 'Docker', 'AWS', 'Vercel', 'PostgreSQL', 'Redis'],
+};
 
-const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com/mithxr', icon: FileText },
-  { name: 'X', href: 'https://x.com/mithxr', icon: X },
-  { name: 'Blog', href: '/posts', icon: FileText },
+const contact = [
+  { icon: X, label: 'X', href: 'https://x.com/mithxr' },
+  { icon: Mail, label: 'Email', href: 'mailto:hello@rishmitha.dev' },
+  { icon: FileText, label: 'Blog', href: '/posts' },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <main className="mx-auto max-w-2xl px-6 py-24 md:py-32">
+    <div className="min-h-screen bg-[#0d1117] text-[#c9d1d9]">
+      <main className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         {/* Header */}
-        <header className="mb-20">
-          <div className="w-16 h-16 bg-gray-900 rounded-full mb-6 flex items-center justify-center">
-            <span className="text-white text-2xl font-semibold">R</span>
+        <header className="mb-16">
+          <div className="flex items-start justify-between mb-6">
+            <div>
+              <h1 className="text-4xl font-bold text-white mb-2">Rishmitha Abdulrahim Valantinabanu</h1>
+              <p className="text-[#8b949e] text-lg">Software Engineer & Founder</p>
+            </div>
+            <div className="hidden md:block">
+              <Code className="w-8 h-8 text-[#58a6ff]" />
+            </div>
           </div>
-          <h1 className="text-3xl font-semibold mb-4">Rishmitha Abdulrahim Valantinabanu</h1>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Building tools that bridge physical data with digital experiences.
+          <p className="text-[#8b949e] leading-relaxed max-w-2xl">
+            Building AI-driven tools that bridge physical data with digital experiences.
+            Currently working on making e-commerce accessible for every small business.
           </p>
         </header>
 
-        {/* Projects */}
+        {/* Experience */}
         <section className="mb-16">
-          <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">Projects</h2>
-          {projects.map((project) => (
-            <a
-              key={project.name}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block py-6 border-b border-gray-100 last:border-0 hover:bg-gray-50 -mx-6 px-6 transition-colors"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="text-lg font-medium mb-1">{project.name}</h3>
-                  <p className="text-gray-600">{project.description}</p>
+          <h2 className="text-sm font-semibold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
+            <Terminal className="w-4 h-4" />
+            Experience
+          </h2>
+          <div className="space-y-6">
+            {experiences.map((exp, i) => (
+              <div key={i} className="border-l-2 border-[#30363d] pl-6 py-1">
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-white font-semibold">{exp.role}</h3>
+                  <span className="text-sm text-[#8b949e]">{exp.period}</span>
                 </div>
-                <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-gray-900 transition-colors ml-4 flex-shrink-0 mt-1" />
+                <p className="text-[#58a6ff] mb-2">{exp.company}</p>
+                <p className="text-[#8b949e] text-sm">{exp.description}</p>
               </div>
-            </a>
-          ))}
-        </section>
-
-        {/* Skills */}
-        <section className="mb-16">
-          <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">Skills</h2>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full"
-              >
-                {skill}
-              </span>
             ))}
           </div>
         </section>
 
-        {/* Contact */}
-        <section>
-          <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">Connect</h2>
-          <div className="flex gap-4">
-            {socialLinks.map((link) => (
+        {/* Projects */}
+        <section className="mb-16">
+          <h2 className="text-sm font-semibold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
+            <Code className="w-4 h-4" />
+            Projects
+          </h2>
+          <div className="grid gap-4">
+            {projects.map((project) => (
               <a
-                key={link.name}
-                href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+                key={project.name}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block p-5 rounded-lg border border-[#30363d] bg-[#161b22] hover:border-[#58a6ff] transition-colors"
               >
-                <link.icon className="w-5 h-5" />
-                <span>{link.name}</span>
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-white font-semibold group-hover:text-[#58a6ff] transition-colors">
+                    {project.name}
+                  </h3>
+                  <ExternalLink className="w-4 h-4 text-[#8b949e] group-hover:text-[#58a6ff] transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-[#8b949e] text-sm mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#21262d] text-[#58a6ff] border border-[#30363d]">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section className="mb-16">
+          <h2 className="text-sm font-semibold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
+            <Database className="w-4 h-4" />
+            Skills & Technologies
+          </h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div>
+              <h3 className="text-xs font-semibold text-[#8b949e] uppercase mb-3">Languages</h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.languages.map((skill) => (
+                  <span key={skill} className="text-sm text-[#c9d1d9]">{skill}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xs font-semibold text-[#8b949e] uppercase mb-3">Frameworks</h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.frameworks.map((skill) => (
+                  <span key={skill} className="text-sm text-[#c9d1d9]">{skill}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xs font-semibold text-[#8b949e] uppercase mb-3">Tools & Infrastructure</h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.tools.map((skill) => (
+                  <span key={skill} className="text-sm text-[#c9d1d9]">{skill}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="mb-16">
+          <h2 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">Connect</h2>
+          <div className="flex flex-wrap gap-4">
+            {contact.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="flex items-center gap-2 px-4 py-2 rounded-md bg-[#21262d] border border-[#30363d] hover:border-[#58a6ff] hover:text-[#58a6ff] transition-colors"
+              >
+                <item.icon className="w-4 h-4" />
+                <span className="text-sm">{item.label}</span>
               </a>
             ))}
           </div>
@@ -91,11 +160,17 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 mt-24">
-        <div className="mx-auto max-w-2xl px-6 py-8">
-          <p className="text-sm text-gray-500">
-            &copy; 2025 Rishmitha Abdulrahim Valantinabanu
-          </p>
+      <footer className="border-t border-[#21262d]">
+        <div className="mx-auto max-w-3xl px-6 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-[#8b949e]">
+              &copy; 2025 Rishmitha Abdulrahim Valantinabanu
+            </p>
+            <p className="text-sm text-[#8b949e] flex items-center gap-2">
+              <MapPin className="w-3 h-3" />
+              Built with Next.js 14
+            </p>
+          </div>
         </div>
       </footer>
     </div>
